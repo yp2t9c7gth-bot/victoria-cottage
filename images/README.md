@@ -12,10 +12,13 @@ Drop the real Victoria Cottage photography into this folder using the filenames 
 | `bedroom-1.jpg` | The Cottage | Landscape/square. |
 | `bedroom-2.jpg` | The Cottage | Landscape/square. |
 | `bedroom-3.jpg` | The Cottage | Landscape/square. |
+| `bedroom-4.jpg` | The Cottage | Landscape/square. |
 | `detail-1.jpg` | Feature strip | Portrait/tall — a considered interior detail. |
 | `lifestyle-1.jpg` | Feature strip | Portrait/tall — a lifestyle moment. |
 | `detail-2.jpg` | Feature strip | Portrait. |
 | `mudeford-coast.jpg` | Mudeford / Location | Portrait, e.g. the Quay, harbour or Hengistbury Head. |
-| `garden.jpg` | Reserved for a future garden/outdoor section | Not yet placed in the homepage layout — held for a future update. |
+| `garden.jpg` | The Cottage | Full-width landscape band beneath the bedroom row — the enclosed garden/outdoor space. |
+
+Victoria Cottage has **four** bedrooms — bedroom count is stated consistently across the hero stats, the cottage facts, and the room grid (`bedroom-1.jpg` through `bedroom-4.jpg`).
 
 Recommended: export at 2x for retina (e.g. 2400px on the long edge for the hero), and keep files under ~400KB via compression (JPEG quality ~75–80, or WebP) so the site stays fast.
