@@ -72,10 +72,10 @@
   }
 
   /* ---- Gentle hero image scale-in on load ---- */
-  var heroPlaceholder = document.querySelector(".hero-media .placeholder");
-  if (heroPlaceholder && !prefersReducedMotion) {
+  var heroPhoto = document.querySelector(".hero-media .photo");
+  if (heroPhoto && !prefersReducedMotion) {
     requestAnimationFrame(function () {
-      heroPlaceholder.style.transform = "scale(1)";
+      heroPhoto.style.transform = "scale(1)";
     });
   }
 })();
