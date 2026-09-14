@@ -35,18 +35,23 @@
   --space-xl: 6rem;
   --space-2xl: 8rem;
 
-  /* ---- Section padding tiers (desktop) ----
-     editorial: the biggest storytelling sections (intro, cottage, location)
-     standard: regular content sections (feature strip, experience)
-     supporting: compact closing sections (reviews, final CTA) */
-  --pad-editorial: 140px 160px;
-  --pad-standard: 120px;
-  --pad-supporting: 90px 110px;
+  /* ---- Section-to-section gaps (desktop) ----
+     Each section contributes half of the gap that follows it, so two
+     adjacent sections' padding sums to the target empty-space band.
+     hero contributes nothing (fixed height), so --gap-hero-welcome is
+     spent entirely on the Introduction's own top padding. */
+  --gap-hero-welcome: 260px;  /* hero -> Welcome (whole gap, "important" band) */
+  --gap-lg: 130px;            /* half of a 260px "important" gap */
+  --gap-md: 100px;            /* half of a 200px gallery-internal gap */
+  --gap-sm: 105px;            /* half of a 210px standard gap */
+  --gap-footer-close: 90px;   /* footer's own closing bottom padding */
 
-  /* ---- Section padding tiers (mobile, ~72-96px) ---- */
-  --pad-editorial-mobile: 96px;
-  --pad-standard-mobile: 84px;
-  --pad-supporting-mobile: 72px;
+  /* ---- Section-to-section gaps (mobile) ---- */
+  --gap-hero-welcome-mobile: 140px;
+  --gap-lg-mobile: 80px;
+  --gap-md-mobile: 64px;
+  --gap-sm-mobile: 64px;
+  --gap-footer-close-mobile: 64px;
 
   /* ---- Layout ---- */
   --container-max: 1320px;
@@ -199,11 +204,11 @@ section {
 .section-head h2 {
   font-size: clamp(2rem, 3.4vw, 2.9rem);
   line-height: 1.12;
-  margin-top: var(--space-sm);
+  margin-top: 2.25rem;
 }
 
 .section-head p {
-  margin-top: var(--space-md);
+  margin-top: 3rem;
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--color-charcoal-soft);
@@ -598,7 +603,8 @@ section {
    ========================================================================== */
 
 .intro {
-  padding-block: var(--pad-editorial);
+  padding-top: var(--gap-hero-welcome);
+  padding-bottom: var(--gap-lg);
 }
 
 .intro .container {
@@ -636,11 +642,11 @@ section {
 }
 
 .intro-text p + p {
-  margin-top: var(--space-sm);
+  margin-top: 5rem;
 }
 
 .intro-stats {
-  margin-top: var(--space-lg);
+  margin-top: 5rem;
   display: flex;
   gap: var(--space-lg);
   background: var(--color-bg-tint);
@@ -684,7 +690,8 @@ section {
    ========================================================================== */
 
 .cottage {
-  padding-block: var(--pad-editorial);
+  padding-top: var(--gap-lg);
+  padding-bottom: var(--gap-md);
 }
 
 .cottage-top {
@@ -852,7 +859,8 @@ section {
    ========================================================================== */
 
 .feature-strip {
-  padding-block: var(--pad-standard);
+  padding-top: var(--gap-md);
+  padding-bottom: var(--gap-lg);
 }
 
 .feature-strip .section-head {
@@ -915,7 +923,8 @@ section {
 
 .location {
   background: var(--color-bg-tint-cool);
-  padding-block: var(--pad-editorial);
+  padding-top: var(--gap-lg);
+  padding-bottom: var(--gap-sm);
   overflow: hidden;
 }
 
@@ -938,14 +947,18 @@ section {
 }
 
 .location-text p {
-  margin-top: var(--space-md);
+  margin-top: 3rem;
   font-size: 1.06rem;
   line-height: 1.75;
   color: var(--color-charcoal-soft);
 }
 
+.location-text p + p {
+  margin-top: 5rem;
+}
+
 .location-list {
-  margin-top: var(--space-lg);
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
@@ -993,7 +1006,8 @@ section {
    ========================================================================== */
 
 .experience {
-  padding-block: var(--pad-standard);
+  padding-top: var(--gap-sm);
+  padding-bottom: var(--gap-sm);
 }
 
 .experience-grid {
@@ -1048,7 +1062,8 @@ section {
 
 .reviews {
   background: var(--color-navy);
-  padding-block: var(--pad-supporting);
+  padding-top: var(--gap-sm);
+  padding-bottom: var(--gap-sm);
   color: #fff;
   position: relative;
 }
@@ -1121,7 +1136,8 @@ section {
    ========================================================================== */
 
 .final-cta {
-  padding-block: var(--pad-supporting);
+  padding-top: var(--gap-sm);
+  padding-bottom: var(--gap-sm);
   text-align: center;
   background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-tint) 100%);
 }
@@ -1131,7 +1147,7 @@ section {
 }
 
 .final-cta h2 {
-  margin-top: var(--space-sm);
+  margin-top: 2.25rem;
   font-size: clamp(2.2rem, 4.6vw, 3.6rem);
   max-width: 18ch;
   margin-inline: auto;
@@ -1139,7 +1155,7 @@ section {
 }
 
 .final-cta p {
-  margin-top: var(--space-md);
+  margin-top: 3rem;
   max-width: 48ch;
   margin-inline: auto;
   font-size: 1.06rem;
@@ -1160,8 +1176,8 @@ section {
    ========================================================================== */
 
 .site-footer {
-  border-top: 1px solid var(--color-line);
-  padding-block: var(--space-xl) var(--space-lg);
+  padding-top: var(--gap-sm);
+  padding-bottom: var(--gap-footer-close);
 }
 
 .footer-top {
@@ -1331,9 +1347,11 @@ section {
   :root {
     --space-2xl: 4.5rem;
     --space-xl: 3rem;
-    --pad-editorial: var(--pad-editorial-mobile);
-    --pad-standard: var(--pad-standard-mobile);
-    --pad-supporting: var(--pad-supporting-mobile);
+    --gap-hero-welcome: var(--gap-hero-welcome-mobile);
+    --gap-lg: var(--gap-lg-mobile);
+    --gap-md: var(--gap-md-mobile);
+    --gap-sm: var(--gap-sm-mobile);
+    --gap-footer-close: var(--gap-footer-close-mobile);
   }
 
   .cottage-top {
