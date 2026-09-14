@@ -39,7 +39,7 @@
   --container-max: 1320px;
   --container-pad: clamp(1.25rem, 4vw, 4rem);
   --radius-sm: 4px;
-  --radius-md: 10px;
+  --radius-md: 4px;
 
   /* ---- Motion ---- */
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
@@ -711,12 +711,13 @@ section {
 .room-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 420px 280px 280px 280px 340px;
+  grid-template-rows: 420px 300px 300px 300px 300px 340px;
   grid-template-areas:
     "living  living  living living"
     "kitchen kitchen dining dining"
     "snug    snug    bath   bath"
-    "bed1    bed2     bed3   bed4"
+    "bed1    bed1     bed2   bed2"
+    "bed3    bed3     bed4   bed4"
     "garden  garden  garden garden";
   gap: var(--space-md);
 }
@@ -988,10 +989,17 @@ section {
 }
 
 .experience-item .num {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  color: var(--color-washed);
-  font-style: italic;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-powder);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-navy);
 }
 
 .experience-item h3 {
