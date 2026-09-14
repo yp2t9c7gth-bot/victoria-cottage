@@ -30,10 +30,23 @@
   /* ---- Spacing scale ---- */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
-  --space-md: 1.75rem;
-  --space-lg: 3rem;
-  --space-xl: 5rem;
+  --space-md: 2rem;
+  --space-lg: 3.5rem;
+  --space-xl: 6rem;
   --space-2xl: 8rem;
+
+  /* ---- Section padding tiers (desktop) ----
+     editorial: the biggest storytelling sections (intro, cottage, location)
+     standard: regular content sections (feature strip, experience)
+     supporting: compact closing sections (reviews, final CTA) */
+  --pad-editorial: 140px 160px;
+  --pad-standard: 120px;
+  --pad-supporting: 90px 110px;
+
+  /* ---- Section padding tiers (mobile, ~72-96px) ---- */
+  --pad-editorial-mobile: 96px;
+  --pad-standard-mobile: 84px;
+  --pad-supporting-mobile: 72px;
 
   /* ---- Layout ---- */
   --container-max: 1320px;
@@ -585,13 +598,13 @@ section {
    ========================================================================== */
 
 .intro {
-  padding-block: var(--space-2xl);
+  padding-block: var(--pad-editorial);
 }
 
 .intro .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(2.5rem, 6vw, 6rem);
+  gap: clamp(3rem, 6vw, 7rem);
   align-items: center;
 }
 
@@ -671,7 +684,7 @@ section {
    ========================================================================== */
 
 .cottage {
-  padding-block: var(--space-2xl);
+  padding-block: var(--pad-editorial);
 }
 
 .cottage-top {
@@ -725,7 +738,7 @@ section {
     "bed1    bed1     bed2   bed2"
     "bed3    bed3     bed4   bed4"
     "garden  garden  garden garden";
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .room-grid figure {
@@ -839,7 +852,7 @@ section {
    ========================================================================== */
 
 .feature-strip {
-  padding-block: var(--space-2xl);
+  padding-block: var(--pad-standard);
 }
 
 .feature-strip .section-head {
@@ -851,7 +864,7 @@ section {
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .feature-grid figure {
@@ -902,14 +915,14 @@ section {
 
 .location {
   background: var(--color-bg-tint-cool);
-  padding-block: var(--space-2xl);
+  padding-block: var(--pad-editorial);
   overflow: hidden;
 }
 
 .location .container {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(2.5rem, 6vw, 6rem);
+  gap: clamp(3rem, 6vw, 7rem);
   align-items: center;
 }
 
@@ -980,13 +993,13 @@ section {
    ========================================================================== */
 
 .experience {
-  padding-block: var(--space-2xl);
+  padding-block: var(--pad-standard);
 }
 
 .experience-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg) var(--space-lg);
+  gap: var(--space-xl) var(--space-lg);
 }
 
 .experience-item {
@@ -1035,7 +1048,7 @@ section {
 
 .reviews {
   background: var(--color-navy);
-  padding-block: var(--space-2xl);
+  padding-block: var(--pad-supporting);
   color: #fff;
   position: relative;
 }
@@ -1108,7 +1121,7 @@ section {
    ========================================================================== */
 
 .final-cta {
-  padding-block: var(--space-2xl);
+  padding-block: var(--pad-supporting);
   text-align: center;
   background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-tint) 100%);
 }
@@ -1318,6 +1331,9 @@ section {
   :root {
     --space-2xl: 4.5rem;
     --space-xl: 3rem;
+    --pad-editorial: var(--pad-editorial-mobile);
+    --pad-standard: var(--pad-standard-mobile);
+    --pad-supporting: var(--pad-supporting-mobile);
   }
 
   .cottage-top {
