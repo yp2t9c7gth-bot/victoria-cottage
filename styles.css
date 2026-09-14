@@ -1,30 +1,32 @@
 /* ==========================================================================
    Victoria Cottage — Design System
-   Refined British coastal luxury. Off-white base with baby-blue / powder-blue
-   as the primary accent, a small blue-grey variant for layered sections, and
-   deep muted navy used sparingly (footer text, one intentional dark section).
-   Fraunces (editorial serif) + Inter (sans).
+   Refined British coastal luxury. Off-white base (~55-60%) with a clearly
+   visible baby/powder-blue as the primary accent (~25-30%, used across
+   section backgrounds, panels, buttons and borders — not just tiny
+   details), a soft blue-grey for layered alternate sections (~10-15%),
+   and deep muted navy reserved for text and one restrained dark section.
+   Lora (premium editorial serif) + Inter (sans).
    ========================================================================== */
 
 :root {
   /* ---- Colour palette ---- */
   --color-bg: #fafbfb;              /* soft off-white, main background */
   --color-bg-raised: #ffffff;       /* pure white for cards / raised surfaces */
-  --color-bg-tint: #e7f1f5;         /* pale baby-blue tinted section bg */
-  --color-bg-tint-cool: #eceff1;    /* pale blue-grey tinted section bg (alt) */
-  --color-powder: #d7e9f0;          /* baby / powder blue — buttons, panels */
-  --color-washed: #a9c6d2;          /* soft washed coastal blue — accents */
-  --color-blue-grey: #71909d;       /* subtle blue-grey — small text accents */
+  --color-bg-tint: #d6e6ec;         /* clearly visible baby-blue section bg */
+  --color-bg-tint-cool: #dce4e8;    /* soft pale blue-grey section bg (alt) */
+  --color-powder: #c9dde5;          /* baby / powder blue — buttons, panels */
+  --color-washed: #bfd6e0;          /* deeper soft blue — borders, hover accents */
+  --color-blue-grey: #416276;       /* readable blue-grey — small text accents */
   --color-navy: #253844;            /* deep muted navy — small accents only */
   --color-navy-soft: #3c5563;       /* lighter navy for hover states */
   --color-charcoal: #292d30;        /* body text */
   --color-charcoal-soft: #565d61;   /* secondary body text */
-  --color-line: rgba(37, 56, 68, 0.12);   /* fine borders / dividers */
-  --color-line-soft: rgba(37, 56, 68, 0.07);
+  --color-line: rgba(65, 98, 118, 0.22);   /* fine blue-tinted borders / dividers */
+  --color-line-soft: rgba(65, 98, 118, 0.14);
   --color-overlay: rgba(20, 30, 36, 0.38);
 
   /* ---- Type ---- */
-  --font-serif: "Fraunces", "Iowan Old Style", "Georgia", serif;
+  --font-serif: "Lora", "Iowan Old Style", "Georgia", serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* ---- Spacing scale ---- */
@@ -447,7 +449,7 @@ section {
 }
 
 .hero-media .placeholder {
-  background: linear-gradient(165deg, #eaf3f7 0%, #f3f8f9 45%, #fafbfb 85%);
+  background: linear-gradient(165deg, #d6e6ec 0%, #d3e3ea 50%, #dbe9ee 100%);
   transform: scale(1.06);
   transition: transform 1.6s var(--ease-editorial);
 }
@@ -460,9 +462,9 @@ section {
   flex-direction: row;
   gap: 0.7rem;
   padding: 0.7rem 1.2rem;
-  border: 1px solid var(--color-line);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.72);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
@@ -499,8 +501,8 @@ section {
 }
 
 .hero-content h1 {
-  font-size: clamp(2.8rem, 7.4vw, 5.6rem);
-  line-height: 1.03;
+  font-size: clamp(2.6rem, 6.6vw, 5rem);
+  line-height: 1.08;
   font-weight: 500;
   max-width: 16ch;
 }
@@ -1093,6 +1095,7 @@ section {
 .final-cta {
   padding-block: var(--space-2xl);
   text-align: center;
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-tint) 100%);
 }
 
 .final-cta .eyebrow {
