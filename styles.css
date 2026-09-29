@@ -326,6 +326,7 @@ section {
   font-size: 1.3rem;
   letter-spacing: 0.01em;
   color: var(--color-navy);
+  white-space: nowrap;
 }
 
 .brand span {
@@ -1333,6 +1334,10 @@ section {
    ========================================================================== */
 
 @media (max-width: 1140px) {
+  .brand {
+    white-space: normal;
+  }
+
   .nav-links {
     position: fixed;
     inset: 0;
