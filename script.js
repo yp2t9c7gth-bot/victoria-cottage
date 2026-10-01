@@ -91,11 +91,4 @@
     });
   }
 
-  /* ---- Gentle hero image scale-in on load ---- */
-  var heroPhoto = document.querySelector(".hero-media .photo");
-  if (heroPhoto && !prefersReducedMotion) {
-    requestAnimationFrame(function () {
-      heroPhoto.style.transform = "scale(1)";
-    });
-  }
 })();
