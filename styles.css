@@ -565,10 +565,18 @@ section {
   overflow: hidden;
 }
 
+/* Absolutely-positioned fill: inset: 0 pins the image to its
+   positioned ancestor's box directly, so it is immune to the
+   percentage-height-resolution edge cases that can affect a plain
+   height: 100% on an <img> nested two levels inside a grid item in
+   some browsers. */
 .hero-media .photo {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   margin: 0;
   transform: scale(1.04);
   transition: transform 1.8s var(--ease-editorial);
