@@ -28,26 +28,6 @@
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
-  /* ---- Sync --header-h to the header's REAL rendered height ----
-     The header's height can vary slightly by browser/font-loading state
-     (e.g. a fallback font rendering taller before the web font loads),
-     so the hero's height must be based on the actual measured header,
-     not a hardcoded assumption, or a gap/overflow appears beneath it. */
-  function syncHeaderHeight() {
-    var h = header.getBoundingClientRect().height;
-    if (h > 0) {
-      document.documentElement.style.setProperty("--header-h", h + "px");
-    }
-  }
-
-  syncHeaderHeight();
-  window.addEventListener("resize", syncHeaderHeight);
-  window.addEventListener("orientationchange", syncHeaderHeight);
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(syncHeaderHeight);
-  }
-  window.addEventListener("load", syncHeaderHeight);
-
   /* ---- Mobile nav toggle ---- */
   if (navToggle) {
     navToggle.addEventListener("click", function () {
@@ -91,4 +71,11 @@
     });
   }
 
+  /* ---- Gentle hero image scale-in on load ---- */
+  var heroPhoto = document.querySelector(".hero-media .photo");
+  if (heroPhoto && !prefersReducedMotion) {
+    requestAnimationFrame(function () {
+      heroPhoto.style.transform = "scale(1)";
+    });
+  }
 })();
